@@ -1,0 +1,55 @@
+\documentclass[12pt, a4paper]{memoir}
+\usepackage{graphicx}
+\chapterstyle{veelo}
+
+%% TOC Depth
+\setsecnumdepth{subsection}
+\maxsecnumdepth{subsection}
+\settocdepth{subsubsection}
+\maxtocdepth{subsubsection}
+
+%-----------------------------------------------------------------------------%
+% Packages
+%-----------------------------------------------------------------------------%
+%% Graphics
+\graphicspath{{figures/}}
+
+%% Typesetting
+\usepackage[utf8]{inputenc}
+
+%% Math
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+%% Bibliography
+\usepackage[numbers]{natbib}
+
+\setlength{\parindent}{0pt}
+\nonzeroparskip
+
+%-----------------------------------------------------------------------------%
+% Meta Informations
+%-----------------------------------------------------------------------------%
+\title{Reliability, Safety and Risk Analysis}
+\author{Francesco Circhetta}
+\date{\today}
+
+%-----------------------------------------------------------------------------%
+% Language
+%-----------------------------------------------------------------------------%
+\usepackage[english]{babel}
+
+\begin{document}
+    \aliaspagestyle{title}{empty}
+    \maketitle
+
+    \frontmatter
+    \tableofcontents
+    
+    \mainmatter
+    \include{chapters/01_introduction}
+    \include{chapters/05_availability}
+
+    \backmatter
+    \nocite{*}
+\end{document}
