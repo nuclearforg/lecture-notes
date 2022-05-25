@@ -1,6 +1,9 @@
 \documentclass[12pt, a4paper]{memoir}
 \usepackage{graphicx}
 \chapterstyle{veelo}
+\copypagestyle{fancyheads}{companion}
+\makeevenhead{fancyheads}{\thepage}{}{\leftmark}
+\makeoddhead{fancyheads}{\rightmark}{}{\thepage}
 
 %% TOC Depth
 \setsecnumdepth{subsection}
@@ -47,6 +50,7 @@
 \begin{document}
     \aliaspagestyle{title}{empty}
     \maketitle
+    \pagestyle{fancyheads}
 
     \frontmatter
     \tableofcontents
