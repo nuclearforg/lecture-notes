@@ -1,5 +1,4 @@
 \documentclass[12pt, a4paper]{memoir}
-\usepackage{graphicx}
 \chapterstyle{veelo}
 \copypagestyle{fancyheads}{companion}
 \makeevenhead{fancyheads}{\thepage}{}{\leftmark}
@@ -15,10 +14,14 @@
 % Packages
 %-----------------------------------------------------------------------------%
 %% Graphics
+\usepackage{graphicx}
 \graphicspath{{figures/}}
+\usepackage{tikz}
 
 %% Typesetting
 \usepackage[utf8]{inputenc}
+\usepackage{xurl}
+\usepackage{geometry}
 \usepackage{fontspec}
 \setmainfont[Ligatures=TeX]{Minion Pro}
 \setsansfont{Myriad Pro}
@@ -39,6 +42,7 @@
 % Meta Informations
 %-----------------------------------------------------------------------------%
 \title{Reliability, Safety and Risk Analysis}
+\newcommand{\thesubtitle}{Lecture notes}
 \author{Francesco Circhetta}
 \date{\today}
 
@@ -54,10 +58,9 @@
     %-------------------------------------------------------------------------%
     % Title
     %-------------------------------------------------------------------------%
-    \aliaspagestyle{title}{empty}
-    \maketitle
+    \include{chapters/00_titlepage}
     \pagestyle{fancyheads}
-
+    
     %-------------------------------------------------------------------------%
     % Tables
     %-------------------------------------------------------------------------%
