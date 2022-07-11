@@ -1,4 +1,113 @@
 %!TEX root = ../mst.tex
 
 \chapter{Introduction}
-\section{Multiphase systems}
+A \textbf{homogeneous system} is a system in which chemical and physical
+properties are independent of the position (uniform).
+
+a \textbf{heterogeneous system} is a system in which chemical and physical
+properties depend on the position. A particular set of heterogeneous systems are
+multiphase systems.
+
+A \textbf{multiphase system} can be thought as a heterogeneous system coming
+from the union of homogeneous systems. Each homogeneous portion is called
+\textbf{phase}.
+
+% TODO figure: phases
+
+Phases are separated by boundaries, called \textbf{interfaces}. Interface are
+usually:
+\begin{itemize}
+    \item deformable (moving)
+    \item diathermal (diabatic)
+    \item permeable to chemical species
+\end{itemize}
+
+From the point of view of energy, an interface usually allows the exchange of
+work, heat and chemical energy.
+
+\section{Thermodynamic equilibrium}
+\subsection{How many phases can coexist at equilibrium?}
+Let's consider a system with $M$ phases and $r$ chemical components (chemical
+species). Then let's write equilibrium equations:
+\begin{itemize}
+    \item \textbf{Mechanical equilibrium}: for planar interfaces\footnote{The
+    number of equations is independent of the shape of the interface, but for
+    the sake of simplicity we will consider flat boundaries. We will extend
+    these considerations when dealing with bubbles or drops.} pressure $p$ is
+    uniform
+    \begin{equation*}
+        p^{(1)} = p^{(2)} = \dots = p^{(M)}
+    \end{equation*}
+    \item \textbf{Thermal equilibrium}: temperature $T$ is uniform
+    \begin{equation*}
+        T^{(1)} = T^{(2)} = \dots = T^{(M)}
+    \end{equation*}
+    \item \textbf{Chemical equilibrium}: we have $r\times M$ equations, chemical
+    potential is the same throughout the heterogeneous system
+    \begin{align*}
+        \mu_1^{(1)} &= \mu_1^{(2)} = \dots = \mu_1^{(M)} \\
+        \mu_2^{(1)} &= \mu_2^{(2)} = \dots = \mu_2^{(M)} \\
+        &\vdots \\
+        \mu_r^{(1)} &= \mu_r^{(2)} = \dots = \mu_r^{(M)}
+    \end{align*}
+\end{itemize}
+
+This system of equations states the thermodynamic equilibrium and contains
+$M\times(r+2)$ variables and $(M-1)\times(r+2)$ equations.
+
+Each one of the $M$ phases is an homogeneous system by itself, hence each phase
+has to satisfy the Gibbs-Duhem Equation to fullfill the first and second
+principles of thermodynamics:
+\begin{equation*}
+    SdT-Vdp+\sum_{i=1}^r N_id\mu_i = 0
+\end{equation*}
+The real number of equations now becomes $(M-1)\times(r+2) + M$.
+
+Given that the well-posedness of a system arises when $\#\text{ Variables} \ge
+\#\text{ Equations}$,
+\begin{align*}
+    \#\text{ Equations} &\le \#\text{ Variables} \\
+    (M-1)(r+2)+M &\le M(r+2) \\
+    M(r+2)-r-2+M &\le M(r+2) \\
+    M &\le r+2
+\end{align*}
+
+\subsubsection{Examples}
+In the case $r=1$ (single component system),
+\begin{equation*}
+    r=1 \implies M \le 3 \quad
+    \begin{cases}
+        M = 3 \to \text{ three phase system (triple state)} \\
+        M = 2 \to \text{ two phase system} \\
+        M = 1 \to \text{ single phase system}
+    \end{cases}
+\end{equation*}
+
+In the case $r=2$ (two component system), $r=2 \implies M \le 4$. An example
+could be moist air, given that we approximate dry air as if it was made by a
+single component. In a lab environment could be possible to observe a mixture of
+condensed air, condensed water and moist air.
+
+\subsection{How many quantities are required to describe equilibrium?}
+Let’s now derive the number of indipendent variables (also known as
+\emph{degrees of freedom}):
+\begin{align*}
+    f &= \#\text{ Variables} - \#\text{ Equations} \\
+    &= M(r+2) - (M-1)(r+2) - M \\
+    &= M(r+2) - M(r+2) + r+2 - M \\
+    &= r - M + 2
+\end{align*}
+
+\subsubsection{Examples}
+For a single component system ($r=1$) the degrees of freedom are $f=3-M$. Three
+cases:
+\begin{itemize}
+    \item $M=3 \implies f=0$ meaning that we cannot set any quantity among
+    temperature, pressure and chemical potential;
+    \item $M=2 \implies f=1$ meaning we are only allowed to set one variable,
+    typically the temperature or the pressure (\emph{saturation condition});
+    \item $M=1 \implies f=2$ meaning we are free to set temperature and pressure
+    independently.
+\end{itemize}
+
+\section{Basic quantities}
