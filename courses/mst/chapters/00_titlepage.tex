@@ -1,0 +1,26 @@
+%!TEX root = ../mst.tex
+
+\begin{titlingpage}
+    \newgeometry{top=1cm, right=2.5cm, bottom=2.5cm, left=2.5cm}
+    \tikz[remember picture,overlay] \node[inner sep=0pt] at (current page.center){\includegraphics[width=\paperwidth,height=\paperheight]{background.pdf}};
+    \newcommand{\colorRule}[3][black]{\textcolor[HTML]{#1}{\rule{#2}{#3}}}
+    \begin{flushleft}
+        \noindent
+        \color[HTML]{5F5F5F}
+        \makebox[0pt][l]{\colorRule[5B1647]{1.3\textwidth}{4pt}}
+        \par
+        \noindent
+        \begin{Spacing}{1.4}
+            \noindent {\LARGE \textbf{\thetitle}}
+            \vskip 0.8em
+            \noindent {\large \textbf{\textit{\thesubtitle}}}
+            \vskip 2em
+            \noindent {\large \theauthor}
+            \vskip 0.6em
+            \noindent {\normalsize \thedate}
+            \vfill
+        \end{Spacing}
+        \noindent
+    \end{flushleft}
+\end{titlingpage}
+\restoregeometry

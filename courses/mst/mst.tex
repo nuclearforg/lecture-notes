@@ -1,0 +1,83 @@
+\documentclass[12pt, a4paper]{memoir}
+\copypagestyle{fancyheads}{companion}
+\makeevenhead{fancyheads}{\thepage}{}{\leftmark}
+\makeoddhead{fancyheads}{\rightmark}{}{\thepage}
+
+%% TOC Depth
+\setsecnumdepth{subsection}
+\maxsecnumdepth{subsection}
+\settocdepth{subsubsection}
+\maxtocdepth{subsubsection}
+
+%-----------------------------------------------------------------------------%
+% Packages
+%-----------------------------------------------------------------------------%
+%% Graphics
+\usepackage[dvipsnames]{xcolor}
+\usepackage{float,graphicx}
+\graphicspath{{figures/}}
+\usepackage{tikz}
+
+%% Typesetting
+\usepackage[utf8]{inputenc}
+\usepackage{xurl}
+\usepackage{geometry}
+\usepackage{fontspec}
+\setmainfont[Ligatures=TeX]{Minion Pro}
+\setsansfont{Myriad Pro}
+\newfontfamily\HeadingsFont{Myriad Pro}
+\newfontfamily\CaptionsFont{Myriad Pro}
+\usepackage{enumitem}
+\usepackage{cancel}
+
+%% Math
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+%% Bibliography
+\usepackage[numbers]{natbib}
+
+\setlength{\parindent}{0pt}
+\nonzeroparskip
+
+%-----------------------------------------------------------------------------%
+% Meta Informations
+%-----------------------------------------------------------------------------%
+\title{Multiphase Systems and Technologies}
+\newcommand{\thesubtitle}{Lecture notes}
+\author{Francesco Circhetta}
+\date{\today}
+
+%-----------------------------------------------------------------------------%
+% Language
+%-----------------------------------------------------------------------------%
+\usepackage[english]{babel}
+
+%-----------------------------------------------------------------------------%
+% Document Start
+%-----------------------------------------------------------------------------%
+\begin{document}
+    %-------------------------------------------------------------------------%
+    % Title
+    %-------------------------------------------------------------------------%
+    \include{chapters/00_titlepage}
+    \pagestyle{fancyheads}
+    
+    %-------------------------------------------------------------------------%
+    % Tables
+    %-------------------------------------------------------------------------%
+    \frontmatter
+    \tableofcontents
+    
+    %-------------------------------------------------------------------------%
+    % Chapters
+    %-------------------------------------------------------------------------%
+    \mainmatter
+    \include{chapters/01_basic_quantities}
+
+    %-------------------------------------------------------------------------%
+    % Bibliography
+    %-------------------------------------------------------------------------%
+    \backmatter
+    \nocite{*}
+\end{document}
