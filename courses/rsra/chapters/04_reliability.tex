@@ -1,0 +1,63 @@
+%!TEX root = ../rsra.tex
+
+\chapter{Reliability of simple systems}
+
+\subsection{Time-dependent systems}
+\begin{figure}[!htp]
+    \centering
+    \includegraphics[width=.7\textwidth]{time_dependent_parallel}
+    \caption{A and B are in parallel}
+\end{figure}
+
+When both A and B are fully energized, they share the total load and their
+failure densities are $f_A(t)$ and $f_B(t)$
+
+If one component fails, the survivor must carry the full load and its failure
+density becomes $g_A(t)$ or $g_B(t)$
+
+Find the reliability $R(t)$ of the system if:  
+\begin{itemize}[noitemsep,topsep=1ex]
+    \item $f_A(t)=f_B(t) = \lambda e^{-\lambda t}$
+    \item $g_A(t)=g_B(t)=k\lambda e^{-k\lambda t}$
+    where $k>1$
+\end{itemize}
+
+\subsubsection*{Solution}
+\begin{equation*}
+    \begin{split}
+        R(t) & = P\{\text{system survives up to $t$}\} \\
+        &= P\{\text{neither component fails before t}\} \\
+        &\quad+ P\{\text{one fails at some time $\tau<t$,} \\
+        &\qquad \quad \text{the other one survives up to $\tau$, with $f(t)$, }\\
+        &\qquad \quad \text{and from $\tau$ to $t$ with $g(t)$}\}
+    \end{split}
+\end{equation*}
+
+\begin{figure}[!htp]
+    \centering
+    \includegraphics[width=.7\textwidth]{time_dependent_timeline}
+    \caption{Timeline}
+\end{figure}
+
+These two cases are mutually exclusive, hence we can sum their probabilities:
+\begin{equation*}
+    \begin{split}
+        R(t) &= R_f^2(t) + \int_0^t (f(\tau)d\tau)R_f(\tau)R_g(t-\tau) \\
+        &= e^{-2\lambda t} + 2\int_0^{t} (\lambda e^{-\lambda \tau} d\tau) (e^{-\lambda\tau})(e^{-k\lambda(t-\tau)}) \\
+        &= e^{-2\lambda t} + 2\lambda e^{-k\lambda t}\int_0^t e^{-\lambda(2-k)\tau}d\tau \\
+        &= \frac{2e^{-k\lambda t} - ke^{-2\lambda t}}{2-k} 
+    \end{split}
+\end{equation*}
+
+\textbf{If $k=1$ our system is equivalent to a parallel system!}
+
+\section{Where to study?}
+\paragraph*{\color{BrickRed}Red book}
+\begin{itemize}
+    \item Chapter 5
+\end{itemize}
+
+\paragraph*{\color{PineGreen}Green book}
+\begin{itemize}
+    \item All problems in Chapter 5
+\end{itemize}
