@@ -12,14 +12,18 @@ A \textbf{multiphase system} can be thought as a heterogeneous system coming
 from the union of homogeneous systems. Each homogeneous portion is called
 \textbf{phase}.
 
-% TODO figure: phases
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=.3\textwidth]{multiphase_system}
+    \caption{A multiphase system.}
+\end{figure}
 
 Phases are separated by boundaries, called \textbf{interfaces}. Interface are
 usually:
 \begin{itemize}
-    \item deformable (moving)
-    \item diathermal (diabatic)
-    \item permeable to chemical species
+    \item deformable (moving);
+    \item diathermal (diabatic);
+    \item permeable to chemical species.
 \end{itemize}
 
 From the point of view of energy, an interface usually allows the exchange of
@@ -102,12 +106,137 @@ Let’s now derive the number of indipendent variables (also known as
 For a single component system ($r=1$) the degrees of freedom are $f=3-M$. Three
 cases:
 \begin{itemize}
-    \item $M=3 \implies f=0$ meaning that we cannot set any quantity among
+    \item $M=3 \to f=0$ meaning that we cannot set any quantity among
     temperature, pressure and chemical potential;
-    \item $M=2 \implies f=1$ meaning we are only allowed to set one variable,
+    \item $M=2 \to f=1$ meaning we are only allowed to set one variable,
     typically the temperature or the pressure (\emph{saturation condition});
-    \item $M=1 \implies f=2$ meaning we are free to set temperature and pressure
+    \item $M=1 \to f=2$ meaning we are free to set temperature and pressure
     independently.
 \end{itemize}
 
 \section{Basic quantities}
+We start by considering two-phase gas-liquid\footnote{Two components, $M \le
+4$.} or vapour-liquid flows\footnote{One component, $M \le 3$.}. To study fluid
+dynamics of a single phase system we can write EDPs that are able to give the
+distribution of all the quantities related to the flow field at any point inside
+the pipeline.
+
+In the case of more than one phase flowing in a pipe, no analytical solutions
+are available, and moreover the numerical methods effective for single phase
+flows fail to properly simulate all the relevant quantity.
+
+For design purposes, we need a simplified approach and hence we will adopt a
+\emph{one-dimentional axial flow model} that lumps the information pertaining
+the distribution of the velocity of the phases using cross section averages. We
+are only interested in determining the behaviour of the relevant quantities
+along the pipe axis.
+
+\subsection{Total Volume Flow Rate}
+Volume Flow Rate is the rate at which volume flows in the pipe. Its unit is
+$[\si{\cubic\metre\per\second}]$ in SI units.
+\begin{equation}
+    Q = Q_g + Q_l
+    \label{eq:total_volume_flow_rate}
+\end{equation}
+where subscript $g$ stands for \emph{gas} whereas $l$ stands for \emph{liquid}.
+
+\subsection{Average Volume Quality}
+Based on the definition of Total Volume Flow Rate we can define a quantity
+related to phase fractions. If we divide each member of
+Eq.~\ref{eq:total_volume_flow_rate} by Q,
+\begin{equation*}
+    1 = \frac{Q_g}{Q} + \frac{Q_l}{Q}
+\end{equation*}
+
+We now define $\overline{x_v}$ (cross-section average) as follows:
+\begin{equation*}
+    \overline{x_v} = \frac{Q_g}{Q}
+\end{equation*}
+Average Volume Quality is adimensional.
+
+\subsection{Total Mass Flow Rate}
+If we call the phase densities $\rho_g$ and $\rho_l$ (in SI units
+$[\si{\kg\per\cubic\metre}]$) we can also define Mass Flow Rates: $\Gamma_g =
+\rho_gQ_g$ for the gas and $\Gamma_l = \rho_lQ_l$ for the liquid.
+
+Since mass is additive, we can write the Total Mass Flow Rate (in SI units
+$[\si{\kg\per\s}]$):
+\begin{equation}
+    \Gamma = \Gamma_g + \Gamma_l
+    \label{eq:total_mass_flow_rate}
+\end{equation}
+
+Recall that instead of phase densities we can use their reciprocal,
+\emph{specific volumes}:
+\begin{align*}
+    v_g &= \frac{1}{\rho_g} \\
+    v_l &= \frac{1}{\rho_l}
+\end{align*}
+
+\subsection{Average Mass Quality}
+Dividing each member of Eq.~\ref{eq:total_mass_flow_rate} by $\Gamma$:
+\begin{equation*}
+    1 = \frac{\Gamma_g}{\Gamma} + \frac{\Gamma_l}{\Gamma}
+\end{equation*}
+
+We define $\overline{x}$, the Average Mass Quality:
+\begin{equation*}
+    \overline{x} = \frac{\Gamma_g}{\Gamma}
+\end{equation*}
+Mass quality is adimensional.
+
+\subsection{Relationship between $\overline{x}$ and $\overline{x_v}$} Owing to
+the difference in densities (or specific volumes), the numerical values of mass
+quality $\overline{x}$ and volume quality $\overline{x_v}$ may differ greatly.
+
+Starting from volume quality,
+\begin{align*}
+    \overline{x_v} &= \frac{Q_g}{Q} = \frac{Q_g}{Q_g+Q_l} = \frac{1}{1+\frac{\textcolor{Blue}{Q_l}}{\textcolor{BrickRed}{Q_g}}} = \\
+    &= \frac{1}{1+\textcolor{Blue}{\frac{\Gamma_l}{\rho_l}}\textcolor{BrickRed}{\frac{\rho_g}{\Gamma_g}}} = \\
+    &= \frac{1}{1+\frac{\rho_g}{\rho_l}\frac{(1-\overline{x})\cancel{\Gamma}}{\overline{x}\cancel{\Gamma}}}
+\end{align*}
+
+In a more elegant form:
+\begin{equation*}
+    \frac{1-\overline{x_v}}{\overline{x_v}} = \frac{\rho_g}{\rho_l}\frac{1-\overline{x}}{\overline{x}}
+\end{equation*}
+
+Generally $\rho_g \ll \rho_l$, hence $\overline{x_v} \gg \overline{x}$. For a
+pure liquid-vapour mixture $\rho_g-\rho_l$ lowers with $T$ (or $p$) and at a
+critical point $\rho_g=\rho_l$.
+
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=.25\textwidth]{avg_x_v_vs_x_v}
+    \caption{Volume Quality vs Mass Quality.}
+\end{figure}
+
+\subsection{Bulk Density}
+The ratio between the mass flow rate and the volume flow rate has the dimensions
+of a density and is called bulk density. It is the density that would pertain to
+an equivalent single-phase fluid flowing with the same mass and volume flow
+rates of the two-phase mixture.
+
+Referring to the cross-section average, the bulk density $\overline{\rho_b}$ is
+such that:
+\begin{equation*}
+    \overline{\rho_b} = \frac{\Gamma}{Q}
+\end{equation*}
+
+Let's specialize the numerator in the previous equation:
+\begin{equation*}
+    \overline{\rho_b} = \frac{\Gamma_g + \Gamma_l}{Q} = \frac{\rho_gQ_g + \rho_lQ_l}{Q} = \rho_g\overline{x_v}+\rho_l(1-\overline{x_v})
+\end{equation*}
+
+On the other hand, we can specialize the denominator:
+\begin{equation*}
+    \overline{\rho_b} = \frac{\Gamma}{Q_g+Q_l} = \frac{\Gamma}{v_g\Gamma_g+v_l\Gamma_l} = \frac{1}{v_g\overline{x}+v_l(1-\overline{x})} = \frac{1}{\overline{v_b}}
+\end{equation*}
+where $\overline{v_b}$ is the \emph{bulk specific volume}.
+
+Bulk density and bulk specific volume are only apparent quantities of the
+flowing mixture and cannot be considered if we're interested in the real mass or
+volume content in the pipeline. This is because the two phases do not travel
+with the same velocities (phase slippage).
+
+% lecture 2 min 28
