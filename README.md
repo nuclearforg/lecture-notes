@@ -19,6 +19,7 @@ their respective repositories linked below. **Click on the emojis!**
 | Course | Website | Notes | Project |
 | :- | :-: | :-: | :-: |
 | Reliability, Safety and Risk Analysis | [:earth_africa:][rsra-link] | [:closed_book:][rsra-tex] | [:mortar_board:][rsra-proj] |
+| Multiphase Systems and Technologies | [:earth_africa:][mst-link] | [:closed_book:][mst-tex] | |
 
 # Contributing
 
@@ -49,6 +50,9 @@ license. See file [`LICENSE`][license-url] for further reference.
  [rsra-link]: https://www4.ceda.polimi.it/manifesti/manifesti/controller/ManifestoPublic.do?EVN_DETTAGLIO_RIGA_MANIFESTO=evento&aa=2021&k_cf=225&k_corso_la=478&k_indir=X2A&codDescr=054649&lang=IT&semestre=2&anno_corso=1&idItemOfferta=155225&idRiga=268350
  [rsra-tex]: /courses/rsra/rsra.pdf
  [rsra-proj]: https://github.com/nuclearforg/rsra
+
+ [mst-link]: https://www11.ceda.polimi.it/schedaincarico/schedaincarico/controller/scheda_pubblica/SchedaPublic.do?&evn_default=evento&c_classe=764750&polij_device_category=DESKTOP&__pj0=0&__pj1=a0b690c165705898fcb86ed48a5f2c8d
+ [mst-tex]: /courses/mst/mst.pdf
 
  [new-issue]: https://github.com/nuclearforg/lecture-notes/issues/new
 
