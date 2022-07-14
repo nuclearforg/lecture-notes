@@ -40,19 +40,19 @@ species). Then let's write equilibrium equations:
     these considerations when dealing with bubbles or drops.} pressure $p$ is
     uniform
     \begin{equation*}
-        p^{(1)} = p^{(2)} = \dots = p^{(M)}
+        p^{(1)} = p^{(2)} = \cdots = p^{(M)}
     \end{equation*}
     \item \textbf{Thermal equilibrium}: temperature $T$ is uniform
     \begin{equation*}
-        T^{(1)} = T^{(2)} = \dots = T^{(M)}
+        T^{(1)} = T^{(2)} = \cdots = T^{(M)}
     \end{equation*}
     \item \textbf{Chemical equilibrium}: we have $r\times M$ equations, chemical
     potential is the same throughout the heterogeneous system
     \begin{align*}
-        \mu_1^{(1)} &= \mu_1^{(2)} = \dots = \mu_1^{(M)} \\
-        \mu_2^{(1)} &= \mu_2^{(2)} = \dots = \mu_2^{(M)} \\
+        \mu_1^{(1)} &= \mu_1^{(2)} = \cdots = \mu_1^{(M)} \\
+        \mu_2^{(1)} &= \mu_2^{(2)} = \cdots = \mu_2^{(M)} \\
         &\vdots \\
-        \mu_r^{(1)} &= \mu_r^{(2)} = \dots = \mu_r^{(M)}
+        \mu_r^{(1)} &= \mu_r^{(2)} = \cdots = \mu_r^{(M)}
     \end{align*}
 \end{itemize}
 
@@ -63,7 +63,7 @@ Each one of the $M$ phases is an homogeneous system by itself, hence each phase
 has to satisfy the Gibbs-Duhem Equation to fullfill the first and second
 principles of thermodynamics:
 \begin{equation*}
-    SdT-Vdp+\sum_{i=1}^r N_id\mu_i = 0
+    SdT-Vdp+\sum_{i=1}^r N_i d\mu_i = 0
 \end{equation*}
 The real number of equations now becomes $(M-1)\times(r+2) + M$.
 
@@ -87,10 +87,10 @@ In the case $r=1$ (single component system),
     \end{cases}
 \end{equation*}
 
-In the case $r=2$ (two component system), $r=2 \implies M \le 4$. An example
-could be moist air, given that we approximate dry air as if it was made by a
-single component. In a lab environment could be possible to observe a mixture of
-condensed air, condensed water and moist air.
+In the case $r=2$ (two component system), the number of possible phases is $M
+\le 4$. An example could be moist air, given that we approximate dry air as if
+it was made by a single component. In a lab environment could be possible to
+observe a mixture of condensed air, condensed water and moist air.
 
 \subsection{How many quantities are required to describe equilibrium?}
 Let’s now derive the number of indipendent variables (also known as
@@ -132,7 +132,7 @@ are only interested in determining the behaviour of the relevant quantities
 along the pipe axis.
 
 \subsection{Total Volume Flow Rate}
-Volume Flow Rate is the rate at which volume flows in the pipe. Its unit is
+Volume flow rate is the rate at which volume flows in the pipe. Its unit is
 $[\si{\cubic\metre\per\second}]$ in SI units.
 \begin{equation}
     Q = Q_g + Q_l
@@ -141,25 +141,28 @@ $[\si{\cubic\metre\per\second}]$ in SI units.
 where subscript $g$ stands for \emph{gas} whereas $l$ stands for \emph{liquid}.
 
 \subsection{Average Volume Quality}
-Based on the definition of Total Volume Flow Rate we can define a quantity
+Based on the definition of total volume flow rate we can define a quantity
 related to phase fractions. If we divide each member of
-Eq.~\ref{eq:total_volume_flow_rate} by Q,
+Eq.~\ref{eq:total_volume_flow_rate} by $Q$,
 \begin{equation*}
     1 = \frac{Q_g}{Q} + \frac{Q_l}{Q}
 \end{equation*}
 
-We now define $\overline{x_v}$ (cross-section average) as follows:
+We now define $\bar{x}_v$ (cross-section average) as follows:
 \begin{equation*}
-    \overline{x_v} = \frac{Q_g}{Q}
+    \bar{x}_v = \frac{Q_g}{Q}
 \end{equation*}
 Average Volume Quality is adimensional.
 
 \subsection{Total Mass Flow Rate}
 If we call the phase densities $\rho_g$ and $\rho_l$ (in SI units
-$[\si{\kg\per\cubic\metre}]$) we can also define Mass Flow Rates: $\Gamma_g =
-\rho_gQ_g$ for the gas and $\Gamma_l = \rho_lQ_l$ for the liquid.
+$[\si{\kg\per\cubic\metre}]$) we can also define mass flow rates, $\Gamma_g$ for
+the gas and $\Gamma_l$ for the liquid:
+\begin{align*}
+    \Gamma_g &= \rho_g Q_g & \Gamma_l &= \rho_l Q_l
+\end{align*}
 
-Since mass is additive, we can write the Total Mass Flow Rate (in SI units
+Since mass is additive, we can write the total mass flow rate (in SI units
 $[\si{\kg\per\s}]$):
 \begin{equation}
     \Gamma = \Gamma_g + \Gamma_l
@@ -169,8 +172,7 @@ $[\si{\kg\per\s}]$):
 Recall that instead of phase densities we can use their reciprocal,
 \emph{specific volumes}:
 \begin{align*}
-    v_g &= \frac{1}{\rho_g} \\
-    v_l &= \frac{1}{\rho_l}
+    v_g &= \frac{1}{\rho_g} & v_l &= \frac{1}{\rho_l}
 \end{align*}
 
 \subsection{Average Mass Quality}
@@ -179,31 +181,31 @@ Dividing each member of Eq.~\ref{eq:total_mass_flow_rate} by $\Gamma$:
     1 = \frac{\Gamma_g}{\Gamma} + \frac{\Gamma_l}{\Gamma}
 \end{equation*}
 
-We define $\overline{x}$, the Average Mass Quality:
+We define $\bar{x}$, the average mass quality:
 \begin{equation*}
-    \overline{x} = \frac{\Gamma_g}{\Gamma}
+    \bar{x} = \frac{\Gamma_g}{\Gamma}
 \end{equation*}
 Mass quality is adimensional.
 
-\subsection{Relationship between $\overline{x}$ and $\overline{x_v}$} Owing to
-the difference in densities (or specific volumes), the numerical values of mass
-quality $\overline{x}$ and volume quality $\overline{x_v}$ may differ greatly.
+\subsection{Relationship between $\bar{x}$ and $\bar{x}_v$} Owing to the
+difference in densities (or specific volumes), the numerical values of mass
+quality $\bar{x}$ and volume quality $\bar{x}_v$ may differ greatly.
 
 Starting from volume quality,
 \begin{align*}
-    \overline{x_v} &= \frac{Q_g}{Q} = \frac{Q_g}{Q_g+Q_l} = \frac{1}{1+\frac{\textcolor{Blue}{Q_l}}{\textcolor{BrickRed}{Q_g}}} = \\
+    \bar{x}_v &= \frac{Q_g}{Q} = \frac{Q_g}{Q_g+Q_l} = \frac{1}{1+\frac{\textcolor{Blue}{Q_l}}{\textcolor{BrickRed}{Q_g}}} = \\
     &= \frac{1}{1+\textcolor{Blue}{\frac{\Gamma_l}{\rho_l}}\textcolor{BrickRed}{\frac{\rho_g}{\Gamma_g}}} = \\
-    &= \frac{1}{1+\frac{\rho_g}{\rho_l}\frac{(1-\overline{x})\cancel{\Gamma}}{\overline{x}\cancel{\Gamma}}}
+    &= \frac{1}{1+\frac{\rho_g}{\rho_l}\frac{(1-\bar{x})\cancel{\Gamma}}{\bar{x}\cancel{\Gamma}}}
 \end{align*}
 
 In a more elegant form:
 \begin{equation*}
-    \frac{1-\overline{x_v}}{\overline{x_v}} = \frac{\rho_g}{\rho_l}\frac{1-\overline{x}}{\overline{x}}
+    \frac{1-\bar{x}_v}{\bar{x}_v} = \frac{\rho_g}{\rho_l}\frac{1-\bar{x}}{\bar{x}}
 \end{equation*}
 
-Generally $\rho_g \ll \rho_l$, hence $\overline{x_v} \gg \overline{x}$. For a
-pure liquid-vapour mixture $\rho_g-\rho_l$ lowers with $T$ (or $p$) and at a
-critical point $\rho_g=\rho_l$.
+Generally $\rho_g \ll \rho_l$, hence $\bar{x}_v \gg \bar{x}$. For a pure
+liquid-vapour mixture $\rho_g-\rho_l$ lowers with $T$ (or $p$) and at a critical
+point $\rho_g=\rho_l$.
 
 \begin{figure}[htp]
     \centering
@@ -217,22 +219,22 @@ of a density and is called bulk density. It is the density that would pertain to
 an equivalent single-phase fluid flowing with the same mass and volume flow
 rates of the two-phase mixture.
 
-Referring to the cross-section average, the bulk density $\overline{\rho_b}$ is
-such that:
+Referring to the cross-section average, the bulk density $\bar{\rho}_b$ is such
+that:
 \begin{equation*}
-    \overline{\rho_b} = \frac{\Gamma}{Q}
+    \bar{\rho}_b = \frac{\Gamma}{Q}
 \end{equation*}
 
 Let's specialize the numerator in the previous equation:
 \begin{equation*}
-    \overline{\rho_b} = \frac{\Gamma_g + \Gamma_l}{Q} = \frac{\rho_gQ_g + \rho_lQ_l}{Q} = \rho_g\overline{x_v}+\rho_l(1-\overline{x_v})
+    \bar{\rho}_b = \frac{\Gamma_g + \Gamma_l}{Q} = \frac{\rho_g Q_g + \rho_l Q_l}{Q} = \rho_g\bar{x}_v+\rho_l(1-\bar{x}_v)
 \end{equation*}
 
 On the other hand, we can specialize the denominator:
 \begin{equation*}
-    \overline{\rho_b} = \frac{\Gamma}{Q_g+Q_l} = \frac{\Gamma}{v_g\Gamma_g+v_l\Gamma_l} = \frac{1}{v_g\overline{x}+v_l(1-\overline{x})} = \frac{1}{\overline{v_b}}
+    \bar{\rho}_b = \frac{\Gamma}{Q_g+Q_l} = \frac{\Gamma}{v_g\Gamma_g+v_l\Gamma_l} = \frac{1}{v_g\bar{x}+v_l(1-\bar{x})} = \frac{1}{\bar{v}_b}
 \end{equation*}
-where $\overline{v_b}$ is the \emph{bulk specific volume}.
+where $\bar{v}_b$ is the \emph{bulk specific volume}.
 
 Bulk density and bulk specific volume are only apparent quantities of the
 flowing mixture and cannot be considered if we're interested in the real mass or
