@@ -241,4 +241,207 @@ flowing mixture and cannot be considered if we're interested in the real mass or
 volume content in the pipeline. This is because the two phases do not travel
 with the same velocities (phase slippage).
 
-% lecture 2 min 28
+\subsection{Elementary cross-section}
+Let's introduce the elementary cross-section element of the pipe
+(Fig.~\ref{fig:elementary_cross_section}). Its area $d\Omega$ is the sum of the
+area occupied by the gas and the one occupied by the liquid:
+\begin{equation}
+    d\Omega = d\Omega_g + d\Omega_l
+    \label{eq:elementary_cross_section}
+\end{equation}
+
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=.6\textwidth]{elementary_volume}
+    \caption{Elementary cross section inside a
+    pipe.\label{fig:elementary_cross_section}}
+\end{figure}
+
+\subsection{Local Void Fraction}
+If we divide each member of  Eq.~\ref{eq:elementary_cross_section} by $\Omega$,
+\begin{equation*}
+    1 = \frac{d\Omega_g}{d\Omega} + \frac{d\Omega_l}{d\Omega}
+\end{equation*}
+
+We now define the local void fraction $\alpha$ as follows\footnote{Letter
+$\epsilon$ is entering widespread use in place of $\alpha$.}:
+\begin{equation}
+    \alpha=\frac{d\Omega_g}{d\Omega}
+    \label{eq:local_void_fraction}
+\end{equation}
+
+\subsection{Local Actual Velocity}
+Given that $dQ_g$ and $dQ_l$ are the elementary volume flow rates, we can define
+the local actual velocity (in SI units $[\si{\metre\per\second}]$) of each phase
+by dividing the volume flow rate by the cross section area occupied by the
+phase:
+\begin{align}
+    u_g &= \frac{dQ_g}{d\Omega_g} & u_l &= \frac{dQ_l}{d\Omega_l}
+    \label{eq:local_actual_velocity}
+\end{align}
+where $u_g$ is the local actual gas velocity, $u_l$ is the local actual liquid
+velocity.
+
+\subsection{Cross-section Average Void Fraction}
+We extract $d\Omega_g$ from Eq.~\ref{eq:local_void_fraction}:
+\begin{equation*}
+    \alpha=\frac{d\Omega_g}{d\Omega} \to d\Omega_g = \alpha d\Omega
+\end{equation*}
+
+Let's now integrate the previous result over the cross section:
+\begin{align*}
+    \Omega_g &= \int_\Omega \alpha d\Omega \\
+    &= \bar{\alpha}\Omega
+\end{align*}
+
+Accordingly, we define the cross-section average void fraction $\bar{\alpha}$ as
+follows:
+\begin{equation}
+    \bar{\alpha}=\frac{\Omega_g}{\Omega}
+    \label{eq:average_void_fraction}
+\end{equation}
+
+Similarly, we define the \emph{liquid hold-up} $1-\bar{\alpha}$ as follows:
+\begin{equation*}
+    1-\bar{\alpha}=\frac{\Omega_l}{\Omega}
+\end{equation*}
+
+\subsection{Cross-section Average Actual Velocity}
+We extract $dQ_g$ from Eq.~\ref{eq:local_actual_velocity}:
+\begin{equation*}
+    u_g = \frac{dQ_g}{d\Omega_g} \to dQ_g = u_g d\Omega_g
+\end{equation*}
+
+Applying the theorem of the integral average,
+\begin{align*}
+    Q_g &= \int_\Omega u_g d\Omega_g \\
+    &= \bar{u}_g{\Omega_g}
+\end{align*}
+
+Accordingly, we define the gas average actual velocity $\bar{u}_g$ as follows:
+\begin{equation}
+    \bar{u}_g = \frac{Q_g}{\Omega_g}
+    \label{eq:average_gas_void_fraction}
+\end{equation}
+
+Similarly, we define the liquid average actual velocity $\bar{u}_l$ as follows:
+\begin{equation}
+    \bar{u}_l = \frac{Q_l}{\Omega_l}
+    \label{eq:average_liquid_void_fraction}
+\end{equation}
+
+\subsection{Superficial Velocity}
+If we have no information about the phase distribution ($\Omega_g$ and
+$\Omega_l$), we cannot derive the actual velocities. Taking into account the
+definition of void fraction (Eq.~\ref{eq:average_void_fraction}), we can replace
+$\Omega_g$ with $\bar{\alpha}{\Omega}$ into
+Eq.~\ref{eq:average_gas_void_fraction}:
+\begin{equation*}
+    \bar{u}_g = \frac{Q_g}{\bar{\alpha}{\Omega}}
+\end{equation*}
+
+The previous relationship puts in evidence an interesting quantity:
+\begin{equation*}
+    J_g = \frac{Q_g}{\Omega}
+\end{equation*}
+where $Q_g$ can be set or measured and $\Omega$ is the total cross-section of
+the pipe. $J_g$ is known as the gas superficial velocity.
+
+Similarly, we can do the same for Eq.~\ref{eq:average_gas_void_fraction}:
+\begin{equation*}
+    \bar{u}_l = \frac{Q_l}{(1-\bar{\alpha}){\Omega}}
+\end{equation*}
+
+Then we introduce a new quantity, the liquid superficial velocity $J_l$:
+\begin{equation*}
+    J_l = \frac{Q_l}{\Omega}
+\end{equation*}
+
+Superficial velocity is the velocity that the phase would assume if it flowed
+alone in the pipe, disregarding the other one. It is an apparent quantity with
+no physical meaning.
+
+Notice that the gas and liquid superficial and actual velocities are
+respectively related by the void fraction and the liquid hold-up:
+\begin{equation*}
+    \frac{J_g}{\bar{u}_g} = \frac{\cancel{Q_g}}{\Omega} \frac{\Omega_g}{\cancel{Q_g}} = \frac{\Omega_g}{\Omega} = \bar{\alpha}
+\end{equation*}
+
+\subsection{Mixture Velocity}
+The mixture velocity\footnote{Instead of mixture velocity, you could find
+literature that calls this quantity volume (or volumetric) flux. Recall that the
+term flux always refers to a flow rate per unit surface area. Volume flux is
+volume flow rate per unit cross-section area, hence it's a velocity
+($[\si{\cubic\meter\per\second}\si{\per\square\meter}] =
+[\si{\metre\per\second}]$).
+
+\textit{`Two-phase flows have been deeply studied for more than a century: you
+can find all sorts of confusing alternative names. If you try to make an
+agreement, you always find a collegue saying: ``No! At our institution it is
+customary and traditional to use this name for this quantity!''\,'} --- Luigi
+Pietro Maria Colombo} ($[\si{\metre\per\second}]$ in SI units) is defined as
+follows:
+\begin{equation*}
+    J = \frac{Q}{\Omega} = \frac{Q_g+Q_l}{\Omega}
+\end{equation*}
+
+Splitting $Q$ into its two components $Q_g$ and $Q_l$, we find that the mixture
+velocity is the sum of two apparent velocities:
+\begin{equation*}
+    J = \frac{Q_g+Q_l}{\Omega} = J_g + J_l
+\end{equation*}
+
+Consequently, volume fraction is expressed as the following ratio:
+\begin{equation*}
+    \bar{x}_v = \frac{J_g}{J}
+\end{equation*}
+
+\subsection{Mass Flux}
+It is customary to also define mass fluxes\footnote{Instead of mass flux, this
+quantity may also be called mass velocity.} and, since we have actual and
+apparent velocities, we can obtain four different mass fluxes by multiplying
+each velocity by the corresponding phase density. SI unit of velocity is
+$[\si{\kg\per\square\metre\per\second}]$.
+
+\subsubsection{Actual Mass Flux}
+\begin{align*}
+    G_g &= \rho_g \bar{u}_g & G_l &= \rho_l \bar{u}_l
+\end{align*}
+
+\subsubsection{Apparent Mass Flux}
+\begin{align*}
+    G^*_g &= \rho_g J_g & G^*_l &= \rho_l J_l
+\end{align*}
+
+\subsection{Photographic Mixture Density}
+Photographic mixture density is the density of the fluid that at a certain time
+occupies an elementary portion of a duct. It is then the ratio of the mass
+contained in the element and its volume.
+
+Since there are often intermittend flow patterns, for instance plug flow, the
+photographic density is highly variable in time. It is then more useful to refer
+to a time averaged quantity.
+
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=.55\textwidth]{photographic_density}
+    \caption{Elementary pipe element.\label{fig:photographic_density_element}}
+\end{figure}
+
+Let's consider the whole cross-section, which is particularly suitable for
+one-dimensional models. The elementary pipe element depicted in
+Fig.~\ref{fig:photographic_density_element} has a small volume $dV=\Omega dz$
+and mass $dM=dM_g+dM_l$.
+
+The cross-section averaged photographic density is defined as:
+\begin{align*}
+    \bar{\rho^*} &= \frac{dM}{dV} = \\
+    &= \frac{\rho_g V_g + \rho_l V_l}{\Omega dz} = \frac{\rho_g \Omega_g dz + \rho_l \Omega_l dz}{\Omega dz} = \\
+    &= \rho_g \bar{\alpha} + \rho_l (1-\bar{\alpha})
+\end{align*}
+i.e.\ a weighted average of the densities of the two phases, based on the void
+fraction.
+
+\subsection{Relationship between $\bar{\alpha}$ and $\bar{x}$ or $\bar{x}_v$}
+
+% TODO lecture 2 1:03:38
